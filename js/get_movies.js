@@ -1,7 +1,7 @@
 import API_KEY from "../apikey.js";
 
 let url_options = "with_watch_providers=337";
-const BASE_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${url_options}&watch_region=KR&language=ko&page=1`;
+//const BASE_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${url_options}&watch_region=KR&language=ko&page=1`;
 
 //https://api.themoviedb.org/3/discover/movie?api_key=80b069d7bb5cb34cf8fdc4be5a095d5b&with_watch_providers=337&watch_region=KR&language=ko&page=1
 //영화 데이터 column 정리
@@ -16,32 +16,27 @@ const BASE_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}
 //vote_count : 평점을 매긴 사람 수
 //page 당 영화 숫자는 20개
 
-async function fetchJsonData() {
+export async function loadData(query) {
     try {
-        const response = await fetch(BASE_URL);
+        let url;
+        if (query != null) {
+            //query가 null일때 아닐때로 검색과 기본 ui 구현을 분리
+            url = `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${API_KEY}&&watch_region=KR&language=ko&page=1`;
+        } else {
+            url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${url_options}&watch_region=KR&language=ko&page=1`;
+        }
+
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const jsonData = await response.json();
-        return jsonData;
+        const data = await response.json();
+        return data;
     } catch (error) {
-        console.error("JSON 데이터를 가져오는 동안 오류 발생:", error);
-        return null; // 또는 에러 처리 방식에 따라 다른 값 반환
+        console.error("영화 데이터를 불러오는 중 오류 발생:", error);
+        return null;
     }
 }
-// 가져온 JSON 데이터를 저장할 변수 (export 할 예정)
-let fetchedData = null;
-
-// 데이터를 가져와서 fetchedData 변수에 저장하는 함수
-async function loadData() {
-    fetchedData = await fetchJsonData();
-}
-loadData().then(() => {
-    console.log(fetchedData);
-});
-
-// fetchedData 변수를 export
-export { fetchedData, loadData };
-export default { fetchedData, loadData };
-//fetch를 사용해서 url로 접속해 json 파일을 얻어내는 과정에서 많은 시행착오를 겪었다. -> fetch 함수를 사용할 때 then() 함수는 해당 fetch가
+//fetch를 사용해서 url로 접속해 json 파일을 얻어내는 과정에서 많은 시행착오를 겪었다.
+// -> fetch 함수를 사용할 때 then() 함수는 해당 fetch가
 //성공했을 대
