@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>영화</title>
+        <link rel="stylesheet" href="/css/main.css" />
+        <script type="module" src="../js/main.js"></script>
+    </head>
+    <body>
+        <div id="movie-search-container" class="bg-gray">
+            <input id="movie-search" type="text" class="margin-10 text-size-30" />
+            <button id="movie-search-btn" value="">검색</button>
+        </div>
+        <div id="movie-modal" class="po-relative">
+            <div id="movie-modal-container" class="margin-auto dp-column-flex po-absolute bg-gray">
+                <img id="movie-modal-image"></img>
+                <div class="movie-modal-second-div dp-column-flex">
+                    <div id="movie-modal-title" class="text-color-white">
+                        제목 : <span id="movie-modal-title-text" class="margin-10 text-color-white"></span>
+                    </div>
+                    <div id="movie-modal-grade" class="text-color-white">
+                        평점 : <span id="movie-modal-grade-text" class=" margin-10 text-color-white"></span>
+                    </div>
+                    <div id="movie-modal-release-date" class=" text-color-white">
+                        출시일 : <span id="movie-modal-release-date-text" class=" margin-10 text-color-white"></span>
+                    </div>
+                    <div id="movie-modal-overview" class="text-color-white">
+                        <span id="movie-modal-overview-text" class="margin-10"></span>
+                    </div> 
+                </div>
+                <button id="movie-model-cancel-btn" class="">취소</button>
+            </div>
+        </div>
+        <div id="movie-container" class="dp-row-flex margin-auto bg-green">
+            <div class="movie-item flex-item bg-gray margin-10">
+                <img class="movie-image" src="" alt="" />
+                <div class="movie-second-div dp-column-flex">
+                    <div class="movie-title text-color-white">
+                        제목 : <span class="movie-title-text margin-10 text-color-white"></span>
+                    </div>
+                    <div class="movie-grade text-color-white">
+                        평점 : <span class="movie-grade-text margin-10 text-color-white"></span>
+                    </div>
+                    <div class="movie-release-date text-color-white">
+                        출시일 : <span class="movie-release-date-text margin-10 text-color-white"></span>
+                    </div>
+                </div>
+                <div class="movie-overview dp-none">줄거리 : <span class="movie-overview-text margin-10"></span></div>
+            </div>
+        </div>
+    </body>
+</html>
