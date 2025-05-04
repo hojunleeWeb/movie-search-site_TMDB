@@ -1,4 +1,4 @@
-import API_KEY from "../config/apikey.js";
+import API_KEY from "../apikey.js";
 
 let url_options = "with_watch_providers=337";
 const BASE_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${url_options}&watch_region=KR&language=ko&page=1`;

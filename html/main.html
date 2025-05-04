@@ -12,7 +12,7 @@
             <input id="movie-search" type="text" class="margin-10 text-size-30" />
             <button id="movie-search-btn" value="">검색</button>
         </div>
-        <div id="movie-modal" class="po-relative">
+        <div id="movie-modal" class="po-fixed dp-none">
             <div id="movie-modal-container" class="margin-auto dp-column-flex po-absolute bg-gray">
                 <img id="movie-modal-image"></img>
                 <div class="movie-modal-second-div dp-column-flex">
@@ -23,13 +23,13 @@
                         평점 : <span id="movie-modal-grade-text" class=" margin-10 text-color-white"></span>
                     </div>
                     <div id="movie-modal-release-date" class=" text-color-white">
-                        출시일 : <span id="movie-modal-release-date-text" class=" margin-10 text-color-white"></span>
+                        출시일 : <span id="movie-modal-release-date-text" class="margin-10 text-color-white"></span>
                     </div>
-                    <div id="movie-modal-overview" class="text-color-white">
-                        <span id="movie-modal-overview-text" class="margin-10"></span>
+                    <div id="movie-modal-overview" class="text-color-white margin-10">
+                        <span id="movie-modal-overview-text" class=""></span>
                     </div> 
                 </div>
-                <button id="movie-model-cancel-btn" class="">취소</button>
+                <button id="movie-modal-cancel-btn" class="margin-auto margin-bottom-20">취소</button>
             </div>
         </div>
         <div id="movie-container" class="dp-row-flex margin-auto bg-green">
@@ -45,8 +45,9 @@
                     <div class="movie-release-date text-color-white">
                         출시일 : <span class="movie-release-date-text margin-10 text-color-white"></span>
                     </div>
+                    <div class="movie-overview dp-none">줄거리 : <span class="movie-overview-text margin-10"></span></div>
                 </div>
-                <div class="movie-overview dp-none">줄거리 : <span class="movie-overview-text margin-10"></span></div>
+                
             </div>
         </div>
     </body>

@@ -5,6 +5,9 @@
 .dp-none {
     display: none;
 }
+.dp-block {
+    display: block;
+}
 .dp-row-flex {
     display: flex;
     flex-flow: row wrap;
@@ -15,7 +18,6 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
-    margin-left: 20px;
 }
 .po-absolute {
     position: absolute;
@@ -23,11 +25,17 @@
 .po-relative {
     position: relative;
 }
+.po-fixed {
+    position: fixed;
+}
 .margin-auto {
     margin: 0 auto;
 }
 .margin-10 {
     margin: 10px;
+}
+.margin-left-20 {
+    margin-left: 20px;
 }
 
 .bg-green {
@@ -51,10 +59,12 @@
 .text-color-white {
     color: white;
 }
-.movie-modal-shadow {
-}
+
 #movie-search-container {
-    height: 100px;
+    height: 70px;
+}
+#movie-search-container > * {
+    filter: none;
 }
 #movie-search {
     width: 400px;
@@ -70,16 +80,28 @@
 }
 #movie-modal-container {
     border: 2px solid black;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 500px;
-    height: 500px;
-    margin-left: -250px;
+    height: 650px;
+}
+#movie-modal-overview {
+    height: 240px;
+    overflow: hidden;
+}
+/*긴 글자*/
+#movie-modal-overview-text {
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 #movie-modal-cancel-btn {
-    width: 100px;
-    height: 100px;
+    width: 30%;
+    height: 50px;
 }
+
 #movie-container {
     width: 100%;
     height: 100%;
@@ -90,8 +112,8 @@
     border: 3px solid gray;
 }
 .movie-item {
-    width: 450px;
-    height: 150px;
+    width: 600px;
+    height: 200px;
 }
 .movie-overview {
     width: 300px;
